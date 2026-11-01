@@ -1,54 +1,43 @@
 <h1 align="center">こんにちは、Cherie です 👋</h1>
 
 <p align="center">
-  <b>データエンジニア → AIに強いデータサイエンティスト</b> を目指して、<br>
-  画像認識・自然言語処理・LLM のプロジェクトを公開しています。
+  <b>データアナリスト・データエンジニア → データサイエンティスト / 機械学習エンジニア</b><br>
+  機械学習・生成AIを業務データに適用し、検証を組み込んで現場で使われる形にすることを目指しています。
 </p>
 
 ---
 
 ## 🧭 About
 
-- 💼 **現職**: データエンジニア（データ基盤・パイプライン構築）
-- 🎯 **目標**: AI領域（画像認識 / NLP / LLM）に強いデータサイエンティスト
-- 🔬 **関心領域**: 異常検知・RAG・Text-to-SQL・マルチモーダル検索・MLOps
-- 🧩 **大切にしていること**: 動くだけで終わらせず、**精度を数値で評価し、限界を正直に明示する**こと
+- 💼 **これまで**: データアナリスト・データエンジニアとして約2年半、SQL・Python・Snowflake によるデータ分析とパイプライン構築、機械学習（XGBoost・Amazon SageMaker）、生成AI・業務アプリ開発（Streamlit in Snowflake）を担当。それ以前は Java・Kotlin でのシステム開発
+- 🎯 **目指す方向**: データサイエンティスト / 機械学習エンジニア（モデル構築・分析）、LLM を組み込む AI エンジニア
+- 🏅 **Kaggle**: [Competitions Expert](https://www.kaggle.com/cherie01)（銀メダル1・銅メダル1）
+- 🧩 **大切にしていること**: 動くだけで終わらせず、評価指標で確かめ、限界も README に書くこと
+- 🤖 **開発の進め方**: 設計と評価の方針は自分で決め、実装には AI エージェントを活用。テストと CI で品質を確かめています
 
-## 📌 Featured Projects
+## 📌 Projects
 
-| プロジェクト | 概要 | 主な技術 | デモが示すこと |
+| プロジェクト | 解く課題 | 手法 | 評価 |
 |---|---|---|---|
-| [🔍 defect-detection](https://github.com/Cherie01234/defect-detection) | 正常品だけで学ぶ**外観検査の異常検知**（PatchCore方式を自前実装、ヒートマップ可視化） | PyTorch, scikit-learn | 手法の自前実装・**手法/バックボーン比較**・MVTec実データでの検証 |
-| [🗄️ text2sql-bi](https://github.com/Cherie01234/text2sql-bi) | 自然言語 → SQL → DWH実行 → **自動インサイト**（スキーマRAG＋SQL検証＋自己修正） | LLM, DuckDB, sqlglot | NLP×データ基盤・**評価指標(Execution Accuracy)の設計と改善** |
-| [🖼️ clip_search](https://github.com/Cherie01234/clip_search) | 多言語CLIP×FAISSによる**ゼロショット画像検索**（日本語クエリ対応） | CLIP, FAISS | マルチモーダル埋め込み・近傍検索 |
-| [📄 rag-doc-qa](https://github.com/Cherie01234/rag-doc-qa) | PDFへの**Explainable RAG**（出典・根拠ハイライト、複数LLM切替） | LangChain, FAISS, OpenRouter | RAG設計・運用を想定したUI |
+| [🔍 defect-detection](https://github.com/Cherie01234/defect-detection) | 正常品の画像だけで、外観検査の欠陥を検出し位置を示す | PatchCore 方式を PyTorch で実装（学習済み ResNet のパッチ特徴＋最近傍距離）。オートエンコーダ方式とも比較 | 画像単位・ピクセル単位の AUROC。MVTec AD（screw）でバックボーンを比較 |
+| [🗄️ text2sql-bi](https://github.com/Cherie01234/text2sql-bi) | 自然言語から SQL を生成して DuckDB で実行し、結果をグラフ化 | スキーマ検索、sqlglot による構文検証と SELECT 以外の拒否、エラー時の自己修正 | 実行結果の一致率（Execution Accuracy）で複数の LLM を比較。不一致の原因を評価指標の性質と切り分け、評価データを修正 |
+| [📄 rag-doc-qa](https://github.com/Cherie01234/rag-doc-qa) | PDF・テキストへの質問に、根拠の箇所を示して回答 | Sentence-Transformers＋FAISS で検索し、LangChain 経由の LLM（切替可）で回答 | 定量評価は今後の課題 |
+| [🖼️ clip_search](https://github.com/Cherie01234/clip_search) | 日本語・英語のキーワードや手持ちの画像から、意味の近い画像を検索 | 多言語 CLIP（open-clip-torch）＋FAISS | 約4.4万枚の画像で検索 |
 
-> 🟢 defect-detection と text2sql-bi は **テスト＋CI** を整備し、評価結果と「指標の限界」まで README に明記しています。
+> 4本とも pytest と GitHub Actions の CI を整備しています。各 README の冒頭に、課題・手法・評価・使い方をまとめています。
 
 ## 🛠 Tech Stack
 
 ![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/-SQL-4479A1)
+![Snowflake](https://img.shields.io/badge/-Snowflake-29B5E8?logo=snowflake&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/-PyTorch-EE4C2C?logo=pytorch&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/-scikit--learn-F7931E?logo=scikitlearn&logoColor=white)
 ![LangChain](https://img.shields.io/badge/-LangChain-1C3C3C?logo=langchain&logoColor=white)
 ![FAISS](https://img.shields.io/badge/-FAISS-005571)
 ![DuckDB](https://img.shields.io/badge/-DuckDB-FFF000?logo=duckdb&logoColor=black)
 ![Streamlit](https://img.shields.io/badge/-Streamlit-FF4B4B?logo=streamlit&logoColor=white)
-![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)
 
-- **画像認識**: CLIP / PatchCore / 学習済みCNN特徴 / 異常検知
-- **NLP・LLM**: RAG / Text-to-SQL / OpenRouter（マルチLLM）/ 埋め込み検索
-- **データ基盤**: ETL / パイプライン / DuckDB / FAISS
-- **品質・運用**: pytest / GitHub Actions(CI) / 評価指標設計
-
-## 📊 GitHub Stats
-
-<p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=Cherie01234&show_icons=true&hide_border=true" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Cherie01234&layout=compact&hide_border=true" />
-</p>
-
----
-
-<p align="center"><i>「見せられる成果」を増やしながら、画像・言語の両領域でAIを実装できるデータサイエンティストへ。</i></p>
+- **実務**: SQL / Python / Snowflake（Streams・Tasks、Snowpark、Cortex）/ pandas・scikit-learn・XGBoost / Amazon SageMaker・S3 / Streamlit in Snowflake / Tableau・Power BI / Java・Kotlin
+- **個人開発**: PyTorch / scikit-learn / pandas・NumPy / LangChain / FAISS / Sentence-Transformers / CLIP（open-clip-torch）/ DuckDB / sqlglot / Streamlit / Plotly / GitHub Actions
