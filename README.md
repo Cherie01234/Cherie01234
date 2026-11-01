@@ -21,7 +21,7 @@
 |---|---|---|---|
 | [🔍 defect-detection](https://github.com/Cherie01234/defect-detection) | 正常品の画像だけで、外観検査の欠陥を検出し位置を示す | PatchCore 方式を PyTorch で実装（学習済み ResNet のパッチ特徴＋最近傍距離）。オートエンコーダ方式とも比較 | 画像単位・ピクセル単位の AUROC。MVTec AD（screw）でバックボーンを比較 |
 | [🗄️ text2sql-bi](https://github.com/Cherie01234/text2sql-bi) | 自然言語から SQL を生成して DuckDB で実行し、結果をグラフ化 | スキーマ検索、sqlglot による構文検証と SELECT 以外の拒否、エラー時の自己修正 | 実行結果の一致率（Execution Accuracy）で複数の LLM を比較。不一致の原因を評価指標の性質と切り分け、評価データを修正 |
-| [📄 rag-doc-qa](https://github.com/Cherie01234/rag-doc-qa) | PDF・テキストへの質問に、根拠の箇所を示して回答 | Sentence-Transformers＋FAISS で検索し、LangChain 経由の LLM（切替可）で回答 | 定量評価は今後の課題 |
+| [📄 rag-doc-qa](https://github.com/Cherie01234/rag-doc-qa) | PDF・テキストへの質問に、根拠の箇所を示して回答 | Sentence-Transformers＋FAISS で検索し、LangChain 経由の LLM（切替可）で回答 | 自作の日本語評価セット（13文書・68問）で検索の Hit@k・MRR を計測し、埋め込みモデルとチャンクサイズを比較 |
 | [🖼️ clip_search](https://github.com/Cherie01234/clip_search) | 日本語・英語のキーワードや手持ちの画像から、意味の近い画像を検索 | 多言語 CLIP（open-clip-torch）＋FAISS | 約4.4万枚の画像で検索 |
 
 > 4本とも pytest と GitHub Actions の CI を整備しています。各 README の冒頭に、課題・手法・評価・使い方をまとめています。
